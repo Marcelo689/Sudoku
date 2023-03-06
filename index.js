@@ -1,4 +1,5 @@
 var alturaTabela = 5;
+var numerosNecessarios = [];
 
 function CriarCedulas(altura, distanciaEntreCedulas){
 
@@ -19,7 +20,6 @@ function PreencheComNumeros(){
     var arrayRetornoTabela = [];
     var contador = 0;
 
-    var numerosNecessarios = [];
     while( contador < alturaTabela){
 
         for (let index = 1; index <= alturaTabela; index++) {
@@ -38,11 +38,25 @@ function PreencheComNumeros(){
 
 }
 
+function RandomizaArray(array){
+    var arraySaida = [];
+    
+    while(arraySaida.length != array.length){
+        var randomNumber = Math.floor(Math.random(array.length) + 1);
+        if(!arraySaida.includes(randomNumber))
+            arraySaida.push(randomNumber);
+    }
+
+    return arraySaida;
+}
+
 function OrganizaTabelaSudoku(arrayTabela){
     
-    while(contemTodosNumeros()){
-
-    }
+    arrayTabela.forEach(linha => {
+        while(contemTodosNumeros(numerosNecessarios, linha)){
+            
+        }
+    });
 }
 
 function contemNumero(array, numero){
