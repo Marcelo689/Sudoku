@@ -63,6 +63,35 @@ function contemNumero(array, numero){
     return array.includes(numero);
 }
 
+function ExisteMesmoNumeroNoMesmoIndice(arrayTabela, numero){
+
+    var listaIndices = [];
+    arrayTabela.forEach( (linha, indice ) =>{
+        if(contemNumero(linha, numero))
+            if( linha[indice] == numero)
+                listaIndices.push(indice);
+    });
+
+    
+    listaIndices.forEach( elemento =>{
+        if(ExisteDoisElementosIguaisArray(listaIndices, numero))
+            return true;
+    });
+    return false;
+}
+
+function ExisteDoisElementosIguaisArray(array, elemento){
+
+    var retorno = array.includes(elemento);
+    if(retorno){
+        var indice = array.indexOf(elemento)
+        array.splice(indice, 1);
+        return array.includes(elemento);
+    }
+
+    return false;
+}
+
 function contemTodosNumeros(arrayNumerosNecessario, arraylinha){
     for (let index = 0; index < arrayNumerosNecessario.length; index++) {
         var retorno = contemNumero(arrayNumerosNecessario, arraylinha[index]);        
